@@ -1,0 +1,1 @@
+Hilfskomponente für Ein- und Ausgaben. Einbindung über Maven.

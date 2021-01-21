@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.8" class="java.beans.XMLDecoder">
+ <object class="de.se3.security.administration.Roles" id="Roles0">
+  <void property="list">
+   <void method="add">
+    <object class="de.se3.security.administration.Role">
+     <void property="description">
+      <string></string>
+     </void>
+     <void property="name">
+      <string>Administrator</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

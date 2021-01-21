@@ -1,0 +1,13 @@
+[JDK 1.6.0 Update 30 und jacorb-2.3.1 wird verwendet]
+- JDK 1.6.0 in Eclipse-Projekt einbinden
+- jacorb-2.3.1/lib/* in eclipse-lib kopieren und in buildpath hinzufügen
+- create_idl.bat ausführen. Dadurch werden die notwendigen Schnittstellen erstellt.
+- Kunde.java um Getter+Setter erweitern
+- KundenContainerEinfachI in server.schnittstelle einfügen
+- build.xml ausführen
+- start_ns.bat ausführen
+- start_server.bat ausführen
+- start_client.bat ausführen
+
+Problembehebung bei corba
+http://www.webnms.com/webnms/tutorials/corba_northbound_tutorial/help/testing_and_debugging_hints.html

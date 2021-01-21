@@ -1,0 +1,25 @@
+# Ausführung in IDE 
+- src/main/java/muster1_allg_alt/Client
+- src/main/java/muster1_allg_neu/Client
+- src/main/java/muster1_bsp_alt/Client
+- src/main/java/muster1_bsp_neu/Client
+- src/main/java/muster2_allg_alt/Client
+- src/main/java/muster2_allg_neu/Client
+- src/main/java/muster2_bsp_alt/Client
+- src/main/java/muster2_bsp_neu/Client
+- src/main/java/muster3_allg_alt/Client
+- src/main/java/muster3_allg_neu/Client
+- src/main/java/muster3_bsp_alt/Client
+- src/main/java/muster3_bsp_neu/Client
+- src/main/java/muster4_allg_alt/Client
+- src/main/java/muster4_allg_neu/Client
+- src/main/java/muster4_bsp_alt/Client
+- src/main/java/muster4_bsp_neu/Client
+- src/main/java/muster5_allg_alt/Client
+- src/main/java/muster5_allg_neu/Client
+- src/main/java/muster5_bsp_alt/Client
+- src/main/java/muster5_bsp_neu/Client
+- src/main/java/muster6_allg_alt/Client
+- src/main/java/muster6_allg_neu/Client
+- src/main/java/muster6_bsp_alt/Client
+- src/main/java/muster6_bsp_neu/Client

@@ -1,0 +1,41 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn
+Datenbasis.xml
+benutzer.mv.db
+Indexdatei.txt
+Stammdatei.txt
+tmlog.lck
+tmlog4.log
+
+### STS ###
+.apt_generated
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.metadata
+Servers
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/

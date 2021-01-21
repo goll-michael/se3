@@ -1,0 +1,22 @@
+//kundencontainer.idl
+module server
+{
+  module schnittstelle
+  {
+    struct Kunde
+    {
+      string name;
+      long nummer;
+    };
+ 
+    interface KundenContainerObjekt
+    {
+      void einfuegeKunde(in Kunde einKunde);
+      Kunde getKundeZuNr(in long nummer);
+      Kunde erstelleKunde();
+      long getNaechsteKundenNr();
+      void endeAnwendung();
+    };
+  };
+};
+

@@ -10,6 +10,7 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<class.path>lib/FastInfoset-2.0.0.jar lib/gmbal-api-only-4.0.2.jar lib/ha-api-3.1.12.jar lib/jakarta.activation-2.0.0.jar lib/jakarta.annotation-api-2.0.0.jar lib/jakarta.jws-api-3.0.0.jar lib/jakarta.mail-2.0.0.jar lib/jakarta.xml.bind-api-3.0.0.jar lib/jakarta.xml.soap-api-2.0.0.jar lib/jakarta.xml.ws-api-3.0.0.jar lib/jaxb-core-3.0.0.jar lib/jaxb-impl-3.0.0.jar lib/jaxws-rt-3.0.0.jar lib/management-api-3.2.3.jar lib/mimepull-1.9.13.jar lib/resolver-20050927.jar lib/saaj-impl-2.0.0.jar lib/stax2-api-4.2.1.jar lib/stax-ex-2.0.0.jar lib/streambuffer-2.0.1.jar lib/woodstox-core-6.2.1.jar</class.path>
 	</properties>
 
 	<dependencies>
@@ -79,6 +80,19 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/lib</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-assembly-plugin</artifactId>
 						<version>3.3.0</version>
@@ -91,11 +105,14 @@
 								</goals>
 								<configuration>
 									<finalName>${project.artifactId}-server</finalName>
-									<appendAssemblyId>true</appendAssemblyId>
+									<appendAssemblyId>false</appendAssemblyId>
 									<archive>
 										<manifest>
 											<mainClass>server.ServerStart</mainClass>
 										</manifest>
+										<manifestEntries>
+											<Class-Path>${class.path}</Class-Path>
+										</manifestEntries>
 									</archive>
 									<descriptors>
 										<descriptor>src/assembly/descriptor-server.xml</descriptor>
@@ -110,11 +127,14 @@
 								</goals>
 								<configuration>
 									<finalName>${project.artifactId}-client</finalName>
-									<appendAssemblyId>true</appendAssemblyId>
+									<appendAssemblyId>false</appendAssemblyId>
 									<archive>
 										<manifest>
 											<mainClass>client.gui.ClientStart</mainClass>
 										</manifest>
+										<manifestEntries>
+											<Class-Path>${class.path}</Class-Path>
+										</manifestEntries>
 									</archive>
 									<descriptors>
 										<descriptor>src/assembly/descriptor-client.xml</descriptor>

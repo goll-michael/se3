@@ -10,6 +10,7 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<class.path>lib/aopalliance-repackaged-3.0.0-RC1.jar lib/hk2-api-3.0.0-RC1.jar lib/hk2-locator-3.0.0-RC1.jar lib/hk2-utils-3.0.0-RC1.jar lib/jakarta.activation-2.0.0.jar lib/jakarta.annotation-api-2.0.0.jar lib/jakarta.inject-api-2.0.0.jar lib/jakarta.validation-api-3.0.0.jar lib/jakarta.ws.rs-api-3.0.0.jar lib/jakarta.xml.bind-api-3.0.0.jar lib/javassist-3.25.0-GA.jar lib/javax.activation-api-1.2.0.jar lib/jaxb-api-2.3.1.jar lib/jersey-client-3.0.0.jar lib/jersey-common-3.0.0.jar lib/jersey-container-jetty-http-3.0.0.jar lib/jersey-container-servlet-core-3.0.0.jar lib/jersey-hk2-3.0.0.jar lib/jersey-media-jaxb-3.0.0.jar lib/jersey-server-3.0.0.jar lib/jetty-http-11.0.0.jar lib/jetty-io-11.0.0.jar lib/jetty-jakarta-servlet-api-5.0.1.jar lib/jetty-security-11.0.0.jar lib/jetty-server-11.0.0.jar lib/jetty-servlet-11.0.0.jar lib/jetty-util-11.0.0.jar lib/osgi-resource-locator-1.0.3.jar lib/slf4j-api-2.0.0-alpha1.jar</class.path>
 	</properties>
 
 	<dependencies>
@@ -77,6 +78,19 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.3.0</version>
@@ -89,11 +103,14 @@
 						</goals>
 						<configuration>
 							<finalName>${project.artifactId}-server</finalName>
-							<appendAssemblyId>true</appendAssemblyId>
+							<appendAssemblyId>false</appendAssemblyId>
 							<archive>
 								<manifest>
 									<mainClass>server.ServerStart</mainClass>
 								</manifest>
+								<manifestEntries>
+									<Class-Path>${class.path}</Class-Path>
+								</manifestEntries>
 							</archive>
 							<descriptors>
 								<descriptor>src/assembly/descriptor-server.xml</descriptor>
@@ -108,11 +125,14 @@
 						</goals>
 						<configuration>
 							<finalName>${project.artifactId}-client</finalName>
-							<appendAssemblyId>true</appendAssemblyId>
+							<appendAssemblyId>false</appendAssemblyId>
 							<archive>
 								<manifest>
 									<mainClass>client.gui.ClientStart</mainClass>
 								</manifest>
+								<manifestEntries>
+									<Class-Path>${class.path}</Class-Path>
+								</manifestEntries>
 							</archive>
 							<descriptors>
 								<descriptor>src/assembly/descriptor-client.xml</descriptor>

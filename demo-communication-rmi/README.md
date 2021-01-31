@@ -4,5 +4,5 @@
  
 # Ausführung über Maven
 - mvn clean install package
-- /target/java -jar demo-communication-rmi-array-server.jar
-- /target/java -jar demo-communication-rmi-array-client.jar
+- /target/java -jar demo-communication-rmi-server.jar
+- /target/java -jar demo-communication-rmi-client.jar

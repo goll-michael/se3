@@ -10,6 +10,7 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<class.path></class.path>
 	</properties>
 	
 	<build>
@@ -24,10 +25,25 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
+				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>server</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
@@ -39,10 +55,13 @@
 								<manifest>
 									<mainClass>gui.Start</mainClass>
 								</manifest>
+								<manifestEntries>
+									<Class-Path>${class.path}</Class-Path>
+								</manifestEntries>
 							</archive>
-							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
+							<descriptors>
+								<descriptor>src/assembly/descriptor.xml</descriptor>
+							</descriptors>
 						</configuration>
 					</execution>
 				</executions>

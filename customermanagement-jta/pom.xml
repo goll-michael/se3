@@ -10,6 +10,7 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<class.path>lib/atomikos-util-5.0.8.jar lib/javax.transaction-api-1.3.jar lib/transactions-5.0.8.jar lib/transactions-api-5.0.8.jar lib/transactions-jta-5.0.8.jar</class.path>
 	</properties>
 
 	<dependencies>
@@ -52,8 +53,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
 				<executions>
 					<execution>
+						<id>server</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
@@ -66,7 +69,7 @@
 									<mainClass>gui.Start</mainClass>
 								</manifest>
 								<manifestEntries>
-									<Class-Path>lib/atomikos-util-5.0.8.jar lib/javax.transaction-api-1.3.jar lib/transactions-5.0.8.jar lib/transactions-api-5.0.8.jar lib/transactions-jta-5.0.8.jar</Class-Path>
+									<Class-Path>${class.path}</Class-Path>
 								</manifestEntries>
 							</archive>
 							<descriptors>

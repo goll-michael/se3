@@ -3,4 +3,4 @@
  
 # Ausführung über Maven
 - mvn clean install package
-- /target/java -jar demo-communication-rmi-array-server.jar
+- /target/java -jar customermanagement-jta.jar

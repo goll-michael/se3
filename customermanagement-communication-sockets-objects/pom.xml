@@ -10,6 +10,7 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<class.path></class.path>
 	</properties>
 	
 	<build>
@@ -24,8 +25,22 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
 				<executions>
 					<execution>
 						<id>server</id>
@@ -40,6 +55,9 @@
 								<manifest>
 									<mainClass>server.ServerStart</mainClass>
 								</manifest>
+								<manifestEntries>
+									<Class-Path>${class.path}</Class-Path>
+								</manifestEntries>
 							</archive>
 							<descriptors>
 								<descriptor>src/assembly/descriptor-server.xml</descriptor>
@@ -59,6 +77,9 @@
 								<manifest>
 									<mainClass>client.gui.ClientStart</mainClass>
 								</manifest>
+								<manifestEntries>
+									<Class-Path>${class.path}</Class-Path>
+								</manifestEntries>
 							</archive>
 							<descriptors>
 								<descriptor>src/assembly/descriptor-client.xml</descriptor>

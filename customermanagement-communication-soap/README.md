@@ -11,5 +11,5 @@
  
 # Ausführung über Maven
 - mvn clean install package -P build
-- /target/java -jar customermanagement-communication-soap-server-descriptor-server.jar
-- /target/java -jar customermanagement-communication-soap-client-descriptor-client.jar
+- /target/java -jar customermanagement-communication-soap-server.jar
+- /target/java -jar customermanagement-communication-soap-client.jar

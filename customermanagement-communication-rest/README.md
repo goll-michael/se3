@@ -4,5 +4,5 @@
  
 # Ausführung über Maven
 - mvn clean install package
-- /target/java -jar customermanagement-communication-rest-server-descriptor-server.jar
-- /target/java -jar customermanagement-communication-rest-client-descriptor-client.jar
+- /target/java -jar customermanagement-communication-rest-server.jar
+- /target/java -jar customermanagement-communication-rest-client.jar

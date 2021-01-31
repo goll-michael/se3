@@ -4,5 +4,5 @@
  
 # Ausführung über Maven
 - mvn clean install package
-- /target/java -jar customermanagement-communication-xmlrpc-server-descriptor-server.jar
-- /target/java -jar customermanagement-communication-xmlrpc-client-descriptor-client.jar
+- /target/java -jar customermanagement-communication-xmlrpc-server.jar
+- /target/java -jar customermanagement-communication-xmlrpc-client.jar

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Anzeigenverwaltung</title>
+	<h:outputStylesheet library="css" name="layout.css" />
+</h:head>
+<h:body>
+	<h:form id="anzeigeForm">
+		<h:messages globalOnly="true" errorClass="meldung_fehler_global"
+			infoClass="meldung_info_global" layout="table" style="width: 99%;" />
+		<h:commandLink action="#{anzeigeWebBean.zeigeStartseite}"
+			value="Startseite" /> | 
+			<h:commandLink action="#{anzeigeWebBean.aktualisiereListen}"
+			value=" Liste aktualisieren" />
+
+		<h:dataTable value="#{anzeigeWebBean.anzeigenListe}" var="eineAnzeige"
+			styleClass="contentTable"
+			columnClasses="contentCell,contentCell,contentCell,contentCell,contentCell,contentCell"
+			headerClass="contentHeader">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Anzeigenummer" />
+				</f:facet>
+				<h:outputText value="#{eineAnzeige.nummer}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Titel" />
+				</f:facet>
+				<h:outputText value="#{eineAnzeige.titel}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Rubrik" />
+				</f:facet>
+				<h:outputText value="#{eineAnzeige.rubrik}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Preis" />
+				</f:facet>
+				<h:outputText value="#{eineAnzeige.preis}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Kunde" />
+				</f:facet>
+				<h:outputText
+					value="#{eineAnzeige.kunde.name.nachname}, #{eineAnzeige.kunde.name.vorname}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+				</f:facet>
+				<h:commandLink
+					action="#{anzeigeWebBean.entferneAnzeige(eineAnzeige.nummer)}"
+					value="Entfernen" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

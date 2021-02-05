@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Anzeigenverwaltung</title>
+	<h:outputStylesheet library="css" name="layout.css" />
+</h:head>
+<h:body>
+	<h:form id="anzeigeForm" styleClass="panelGrid">
+		<h:messages globalOnly="true" errorClass="meldung_fehler_global"
+			infoClass="meldung_info_global" layout="table" style="width: 99%;" />			
+			
+			Bitte füllen Sie alle mit * markierten Felder aus!
+			
+			<h:panelGrid columns="3" styleClass="panelGrid">
+			<h:outputText value="Anzeigenummer" />
+			<h:inputText id="in_nummer"
+				value="#{anzeigeWebBean.aktAnzeige.nummer}" disabled="true" />
+			<h:message for="in_nummer" errorClass="meldung_fehler_lokal" />
+
+			<h:outputText value="Rubrik *" />
+			<h:inputText id="in_rubrik"
+				value="#{anzeigeWebBean.aktAnzeige.rubrik}" required="true" />
+			<h:message for="in_rubrik" errorClass="meldung_fehler_lokal" />
+
+			<h:outputText value="Titel *" />
+			<h:inputText id="in_titel" value="#{anzeigeWebBean.aktAnzeige.titel}"
+				required="true" />
+			<h:message for="in_titel" errorClass="meldung_fehler_lokal" />
+
+			<h:outputText value="Beschreibung" />
+			<h:inputTextarea id="in_beschreibung"
+				value="#{anzeigeWebBean.aktAnzeige.beschreibung}" />
+			<h:message for="in_beschreibung" errorClass="meldung_fehler_lokal" />
+
+			<h:outputText value="Preis *" />
+			<h:inputText id="in_preis" value="#{anzeigeWebBean.aktAnzeige.preis}"
+				required="true" />
+			<h:message for="in_preis" errorClass="meldung_fehler_lokal" />
+
+			<h:outputText value="Kunde" />
+			<h:inputText id="in_kunde"
+				value="#{anzeigeWebBean.aktAnzeige.kunde.name.nachname}, #{anzeigeWebBean.aktAnzeige.kunde.name.vorname}"
+				disabled="true" />
+			<h:message for="in_kunde" errorClass="meldung_fehler_lokal" />
+
+			<h:commandButton styleClass="button"
+				action="#{anzeigeWebBean.speichereAnzeige}" value="Speichern" />
+			<h:commandButton styleClass="button"
+				action="#{anzeigeWebBean.beendeAssistenten}" immediate="true"
+				value="Abbrechen" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

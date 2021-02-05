@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:application="http://java.sun.com/xml/ns/javaee/application_5.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="5"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd">
+	<display-name>admanagementSWT</display-name>
+	<module>
+		<ejb>amWS-SWT-Server-jar.jar</ejb>
+	</module>
+	<module>
+		<web>
+			<web-uri>amWS-SWT-Server-war.war</web-uri>
+			<context-root>admanagementSWT</context-root>
+		</web>
+	</module>
+</application>

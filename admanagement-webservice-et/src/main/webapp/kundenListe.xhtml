@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Anzeigenverwaltung</title>
+	<h:outputStylesheet library="css" name="layout.css" />
+</h:head>
+<h:body>
+	<h:form id="kundeForm">
+		<h:messages globalOnly="true" errorClass="meldung_fehler_global"
+			infoClass="meldung_info_global" layout="table" style="width: 99%;" />
+		<h:commandLink action="#{anzeigeWebBean.zeigeStartseite}"
+			value="Startseite" /> |
+			<h:commandLink action="#{anzeigeWebBean.aktualisiereListen}"
+			value=" Liste aktualisieren" />
+
+		<h:dataTable value="#{anzeigeWebBean.kundenListe}" var="einKunde"
+			styleClass="contentTable"
+			columnClasses="contentCell,contentCell,contentCell"
+			headerClass="contentHeader">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Kundennummer" />
+				</f:facet>
+				<h:outputText value="#{einKunde.nummer}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Name" />
+				</f:facet>
+				<h:outputText
+					value="#{einKunde.name.nachname}, #{einKunde.name.vorname}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+				</f:facet>
+				<h:commandLink
+					action="#{anzeigeWebBean.entferneKunde(einKunde.nummer)}"
+					value="Entfernen" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

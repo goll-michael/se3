@@ -1,0 +1,8 @@
+connect
+module add --name=org.apache.derby --resources=derby-10.15.2.0.jar,derbynet-10.15.2.0.jar,derbyshared-10.15.2.0.jar,derbytools-10.15.2.0.jar --resource-delimiter=, --dependencies=javax.api,javax.transaction.api
+/subsystem=datasources/jdbc-driver=derby-embedded:add(driver-name=derby-embedded, driver-module-name=org.apache.derby, driver-class-name=org.apache.derby.jdbc.EmbeddedDriver)
+data-source add --name=amCS-Datenquelle --driver-name=derby-embedded --connection-url=jdbc:derby:${jboss.server.base.dir}/amCS_db;create=true --jndi-name=java:jboss/jdbc/amCS-Datenquelle
+data-source add --name=amWEB-Datenquelle --driver-name=derby-embedded --connection-url=jdbc:derby:${jboss.server.base.dir}/amWEB_db;create=true --jndi-name=java:jboss/jdbc/amWEB-Datenquelle
+data-source add --name=amWS-ET-Datenquelle --driver-name=derby-embedded --connection-url=jdbc:derby:${jboss.server.base.dir}/amWS_ET_db;create=true --jndi-name=java:jboss/jdbc/amWS-ET-Datenquelle
+data-source add --name=amWS-IT-Datenquelle --driver-name=derby-embedded --connection-url=jdbc:derby:${jboss.server.base.dir}/amWS_IT_db;create=true --jndi-name=java:jboss/jdbc/amWS-IT-Datenquelle
+data-source add --name=amWS-SWT-Datenquelle --driver-name=derby-embedded --connection-url=jdbc:derby:${jboss.server.base.dir}/amWS_SWT_db;create=true --jndi-name=java:jboss/jdbc/amWS-SWT-Datenquelle

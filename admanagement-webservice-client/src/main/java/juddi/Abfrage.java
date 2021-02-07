@@ -26,8 +26,8 @@ import javax.xml.registry.infomodel.ServiceBinding;
 public class Abfrage
 {
 	// Verbindungsparameter. Bitte den geänderten Port 8090 beachten!!!
-    private static final String PUBLICATION_MANAGER_URL = "http://localhost:8090/juddiv3/services/publishv2";
-    private static final String INQUIRY_MANAGER_URL = "http://localhost:8090/juddiv3/services/inquiry";
+    private static final String PUBLICATION_MANAGER_URL = "http://localhost:8090/juddi/publish";
+    private static final String INQUIRY_MANAGER_URL = "http://localhost:8090/juddi/inquiry";
     
     // ID des von uns über die jUDDI-Webkonsole gespeicherten Publishers "juddi"
     private static final String JUDDI_PUBLISHER_ID = "juddi";
@@ -44,16 +44,6 @@ public class Abfrage
 		}
     	catch (JAXRException e)
     	{
-			e.printStackTrace();
-		}
-    }
-    
-    public static void main(String[] args)
-    {
-    	try {
-			new Abfrage().init();
-		} catch (JAXRException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

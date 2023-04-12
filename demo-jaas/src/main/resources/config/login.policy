@@ -1,0 +1,16 @@
+grant {
+  permission javax.security.auth.AuthPermission "createLoginContext.CustomLoginConfig";
+  permission javax.security.auth.AuthPermission "modifyPrincipals";
+  permission javax.security.auth.AuthPermission "doAsPrivileged";
+  permission java.lang.RuntimePermission "setContextClassLoader";
+  permission java.lang.RuntimePermission "shutdownHooks";
+};
+grant Principal secure.Role "Researcher" 
+{
+    permission secure.PermissionResearch;
+};
+grant Principal secure.Role "Editor" 
+{
+    permission secure.PermissionResearch;
+    permission secure.PermissionEdit;  
+};

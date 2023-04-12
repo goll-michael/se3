@@ -4,29 +4,32 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>goll.se3.example</groupId>
 	<artifactId>demo-jpa</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<javax.persistence-api.version>2.2</javax.persistence-api.version>
+		<openjpa.version>3.2.2</openjpa.version>
+		<h2.version>2.1.214</h2.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>javax.persistence</groupId>
 			<artifactId>javax.persistence-api</artifactId>
-			<version>2.2</version>
+			<version>${javax.persistence-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.openjpa</groupId>
 			<artifactId>openjpa</artifactId>
-			<version>3.1.2</version>
+			<version>${openjpa.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.194</version>
+			<version>${h2.version}</version>
 		</dependency>
 	</dependencies>
 

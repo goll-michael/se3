@@ -1,6 +1,7 @@
 # Ausführung in IDE 
-- src/main/java/main/HelloWorldImpl
-- src/main/java/main/HelloWorldClient
+- src/main/java/server/StartServerUI
+- src/main/java/client/StartClientUI
+
  
 # Ausführung über Maven
 - mvn clean install package
